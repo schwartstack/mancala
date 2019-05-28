@@ -131,7 +131,7 @@ launch.mancala<-function(){
           lb=lb[-11,]
           row.names(lb)=1:nrow(lb)
           write.table(lb,"mancala.lb.medium.txt")
-          cat("Easy Leaderboard","\n")
+          cat("Medium Leaderboard","\n")
           print(lb)
           Sys.sleep(.5)
         }
