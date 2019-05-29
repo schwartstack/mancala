@@ -49,9 +49,9 @@ launch.mancala<-function(){
   while(T){
     chime(1)
     difficulty<-readline(prompt="Select difficulty (easy, medium): ")
-    if(difficulty!="easy"&&difficulty!="medium"){
+    if(!startsWith(difficulty,"e")&&!startsWith(difficulty,"m")){
       cat("Invalid entry.","\n")
-    }else if(difficulty=="easy"){
+    }else if(startsWith(difficulty,"e")){
       difficulty=1
       break
     }else{
@@ -72,10 +72,10 @@ launch.mancala<-function(){
   while(T){
     chime(1)
     sound<-readline(prompt="Sound on? (yes, no): ")
-    if(sound!="0"&&sound!="1"&&sound!="on"&&sound!="off"&&sound!="yes"&&sound!="no"){
+    if(sound!="0"&&sound!="1"&&sound!="on"&&sound!="off"&&!startsWith(sound,"y")&&!startsWith(sound,"n")){
       cat("Invalid entry.","\n")
     }else{
-      if(sound=="0"||sound=="no"||sound=="off"){
+      if(sound=="0"||startsWith(sound,"n")||sound=="off"){
         sound=0
         break
       }else{
@@ -493,7 +493,7 @@ get.move<-function(x){
       if(x[16]==1){
         chime(4)
       }
-      readline(prompt = "Press [Enter] to return to game.")
+      readline(prompt = "Press [Enter] to return to game. ")
       print.board(x)
     }
     if(startsWith(x[19],"leader")||startsWith(x[19],"high")){
